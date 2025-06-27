@@ -1,9 +1,6 @@
-# scheduler.py
-
-exams = []  # List to store exam dictionaries
-
+exams = []  
 def display_menu():
-    print("\nSmart Scheduler - Exam Management")
+    print("\nSMART SCHEDULER ")
     print("1. Add a new exam")
     print("2. View all exams")
     print("3. Edit an exam")
@@ -11,7 +8,7 @@ def display_menu():
     print("5. Exit")
 
 def add_exam():
-    print("\n--- Add New Exam ---")
+    print("\n *Add New Exam*")
     name = input("Enter exam name: ")
     date = input("Enter exam date (YYYY-MM-DD): ")
     time = input("Enter exam time (HH:MM): ")
@@ -21,10 +18,10 @@ def add_exam():
     new_exam.update({'name': name, 'date': date, 'time': time, 'room': room})
 
     exams.append(new_exam)
-    print(f"✅ Exam '{name}' added successfully!")
+    print(f"Exam '{name}' added successfully!")
 
 def view_exams():
-    print("\n--- All Scheduled Exams ---")
+    print("\n* All Scheduled Exams *")
     if not exams:
         print("No exams scheduled yet.")
         return
@@ -48,11 +45,11 @@ def edit_exam():
             room = input(f"New room (current: {exam.get('room')}): ") or exam.get('room')
 
             exams[index].update({'name': name, 'date': date, 'time': time, 'room': room})
-            print("✅ Exam updated successfully!")
+            print("Exam updated successfully!")
         else:
-            print("❌ Invalid exam number.")
+            print("Invalid exam number.")
     except ValueError:
-        print("❌ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 def delete_exam():
     view_exams()
@@ -62,14 +59,14 @@ def delete_exam():
         index = int(input("\nEnter the exam number to delete: ")) - 1
         if 0 <= index < len(exams):
             deleted = exams.pop(index)
-            print(f"🗑️ Exam '{deleted.get('name')}' deleted.")
+            print(f" Exam '{deleted.get('name')}' deleted.")
         else:
-            print("❌ Invalid exam number.")
+            print("Invalid exam number.")
     except ValueError:
-        print("❌ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 def main():
-    print("📘 Welcome to Smart Scheduler!")
+    print("Welcome to Smart Scheduler!")
     while True:
         display_menu()
         choice = input("Choose an option (1-5): ")
@@ -82,10 +79,10 @@ def main():
         elif choice == '4':
             delete_exam()
         elif choice == '5':
-            print("👋 Thank you for using Smart Scheduler. Goodbye!")
+            print("Thank you for using Smart Scheduler. ")
             break
         else:
-            print("❌ Invalid input. Try again.")
+            print("Invalid input. Try again.")
 
 if __name__ == "__main__":
     main()
